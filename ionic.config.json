@@ -1,5 +1,7 @@
 {
   "name": "UniSell",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

@@ -1,9 +1,57 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>
-      Tab Two
+<ion-header no-border color="primary">
+  <ion-toolbar color="primary" hideBackButton="true">
+    <ion-buttons slot="start">
+      <ion-menu-button color="royal" menu="first">
+
+      </ion-menu-button>
+      <!-- <ion-button (click)="onClick()">
+        <ion-icon slot="icon-only" name="menu"></ion-icon>
+      </ion-button> -->
+    </ion-buttons>
+    <ion-title class="title">UniSell 
     </ion-title>
+    <ion-buttons slot="end">
+      <ion-button slot="icon-only" color="royal" 
+      (click)="navcart()"
+       class="header-btn-cart">
+        <ion-icon name="cart"></ion-icon>
+        <ion-badge class="carts" item-right color="danger">12</ion-badge>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content></ion-content>
+
+<ion-content class="ion-no-padding">
+  <ion-grid class="grid">
+    <ion-row>
+      <!-- first row -->
+      <ion-slides pager  speed=2000 loop=true dir="rtl">
+        <ion-slide>
+          <div class="overlay">
+            <img src="/assets/img/offer1.jpg" class="slider-img">
+          </div>
+          <div class="card-title">Producto 2</div>
+        </ion-slide>
+
+        <ion-slide>
+            <div class="overlay">
+              <img src="/assets/img/offer.jpg" class="slider-img">
+            </div>
+            <div class="card-title">Producto 1</div>
+          </ion-slide>
+      </ion-slides>
+    </ion-row>
+    <!-- first row -->
+    <!-- second-row -->
+
+    <h2 class="ion-text-center">Categoria</h2>
+
+    <ion-row class="categories">
+      <ion-col size="6" *ngFor="let item of [1,1,1,1,1,1]" (click)="navigate(item)">
+        <img src="/assets/img/event2.jpg">
+        <p class="text-over-img">Comida</p>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
