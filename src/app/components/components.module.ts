@@ -1,3 +1,4 @@
+import { PopoverProductComponent } from './popover-product/popover-product.component';
 import { MenuComponent } from './menu/menu.component';
 
 import { NgModule } from '@angular/core';
@@ -7,11 +8,17 @@ import { RouterModule } from '@angular/router';
 
 
 @NgModule({
+  entryComponents:[
+    PopoverProductComponent,
+  ],
+  
   declarations: [
-    MenuComponent
+    MenuComponent,
+    PopoverProductComponent,
   ],
   exports: [
-    MenuComponent
+    MenuComponent,
+    PopoverProductComponent,
   ],
   imports: [
     CommonModule,

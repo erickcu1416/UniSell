@@ -1,3 +1,4 @@
+import { ComponentsModule } from './../components/components.module';
 import { IonicModule } from '@ionic/angular';
 import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
@@ -8,6 +9,7 @@ import { Tab3Page } from './tab3.page';
 @NgModule({
   imports: [
     IonicModule,
+    ComponentsModule,
     CommonModule,
     FormsModule,
     RouterModule.forChild([{ path: '', component: Tab3Page }])

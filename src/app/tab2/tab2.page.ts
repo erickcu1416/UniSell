@@ -14,8 +14,7 @@ export class Tab2Page {
     console.log('NavCar');
   }
 
-  navigate(item) {
-    console.log(item);
+  navigate() {
     this.router.navigateByUrl('tab3');
   }
 }

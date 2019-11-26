@@ -14,11 +14,11 @@
 </ion-header>
 
 <ion-content class="ion-no-padding">
-    <ion-searchbar  placeholder="Type Item Name">
+    <ion-searchbar placeholder="Type Item Name">
     </ion-searchbar>
     <ion-list *ngFor="let item of [1,1,1,1,1,1] ; let i=index ">
         <!-- list -->
-        <ion-item class="ion-text-wrap" (click)="navigate(item.$key)">
+        <ion-item class="ion-text-wrap" (click)="presentPopover('a')">
             <!-- item -->
             <ion-row class="catagory">
                 <!-- row -->
@@ -38,7 +38,7 @@
                     </p>
                     <div class="product-rating">
                         <!-- rating -->
-                      
+
                     </div>
                 </ion-col>
             </ion-row>
