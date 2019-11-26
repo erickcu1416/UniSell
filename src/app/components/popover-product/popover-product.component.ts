@@ -1,3 +1,5 @@
+import { PopoverController } from '@ionic/angular';
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,8 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PopoverProductComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router, private popoverController: PopoverController) { }
 
   ngOnInit() {}
+
+  goToHome() {
+    this.popoverController.dismiss();
+    this.router.navigateByUrl('');
+  }
 
 }

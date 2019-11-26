@@ -1,75 +1,57 @@
 <ion-content>
     <div class="login">
         <ion-row>
-            <img class="img" src="">
+            <img class="img" src="/assets/img/g+.png">
             <br>
         </ion-row>
         <ion-row>
-            <input type="file" name="file" id="file" class="inputfile">
+            <!-- <input type="file" name="file" id="file" class="inputfile">
             <label for="file" class="upload">
                 <ion-icon ios="ios-cloud-upload" md="md-cloud-upload"></ion-icon>
-            </label>
+            </label> -->
         </ion-row>
-        <p class="name">Eduardo</p>
+        <br>
+        <p class="name">Espaguetti</p>
     </div>
-    <ion-list>
-        <ion-item class="select-item">
-            <ion-label>Language:</ion-label>
-            <ion-select>
-            </ion-select>
-        </ion-item>
-    </ion-list>
-    <form>
-        <ion-list>
-            <ion-item>
-                <ion-label primary>Notifications</ion-label>
-                <ion-toggle primary checked="true" name="name" id="name"></ion-toggle>
 
-            </ion-item>
-            <ion-item>
-                <ion-label primary>{{"Notifications"}}</ion-label>
-                <ion-toggle primary checked="false" name="name" id="name"></ion-toggle>
+    <ion-grid fixed class="border-bottom bg-white">
+        <ion-row class="ion-no-padding">
+            <ion-col size="6">
+            <div class="ion-text-center">
+                <span class="text-statics-big text-primary">$122</span> <br>
+                <small>Precio</small>
+            </div>
+            </ion-col>
+            <ion-col size="6">
+            <div class="ion-text-center">
+                <span class="text-statics-big text-primary">15</span> <br>
+                <small>Disponibles</small>
+            </div>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
 
-            </ion-item>
-            <!--card no-->
+        <div class="vertical-padding">
+            <p class="ion-text-center text-profile">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellendus veritatis ut distinctio
+            </p>
+        </div>
+
+        <ion-list lines="none" inset="true">
+            <ion-list-header>
+                <ion-label>Información Adicional</ion-label>
+            </ion-list-header>
             <ion-item>
-                <ion-label>User Name:</ion-label>
-                <ion-input type="text" name="name" id="name" placeholder="name" required></ion-input>
+                <ion-icon name="calendar" mode="ios" slot="start"></ion-icon>
+                <ion-label>12/12/12</ion-label>
             </ion-item>
             <ion-item>
-                <ion-label>Email:</ion-label>
-                <ion-input type="email" name="email" id="email" placeholder="email" required></ion-input>
+                <ion-icon name="time" mode="ios" slot="start"></ion-icon>
+                <ion-label>04:08</ion-label>
             </ion-item>
-            <ion-item>
-                <ion-label>Mobile Number:}</ion-label>
-                <ion-input type="text" name="mobileNo" id="mobileNo" placeholder="mobile number" required></ion-input>
-            </ion-item>
-            <!--       <ion-item>
-                    <ion-label>Card Number:</ion-label>
-                    <ion-input type="text" name="card" id="card" placeholder="5172628928"
-                               [(ngModel)]="user.card"></ion-input>
-                  </ion-item> -->
-            <!--name on card-->
-            <!--       <ion-item>
-                    <ion-label>Name on card:</ion-label>
-                    <ion-input type="text" name="cardName" id="cardName" placeholder="Your card Name"
-                               [(ngModel)]="user.cardName"></ion-input>
-                  </ion-item> -->
-            <!--cvv-->
-            <!--       <ion-item>
-                    <ion-label>Cvv:</ion-label>
-                    <ion-input type="number" name="cvv" id="cvv" placeholder="234"
-                               [(ngModel)]="user.cvv"></ion-input>
-                  </ion-item> -->
-            <!--date-->
-            <!--       <ion-item>
-                    <ion-label>Date of expiry:</ion-label>
-                    <ion-input type="number" name="date" id="date" placeholder="25/06/2020"
-                               [(ngModel)]="user.date"></ion-input>
-                  </ion-item> -->
         </ion-list>
-        <!--button-->
-        <button class="login-btn" ion-button type="submit">Save</button>
-    </form>
+  
+  
+        <button class="login-btn" (click)="goToHome()" ion-button>Comprar</button>
 
 </ion-content>

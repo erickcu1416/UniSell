@@ -92,3 +92,15 @@
   --ion-color-shade: var(--ion-color-royal-shade);
   --ion-color-tint: var(--ion-color-royal-tint);
 }
+
+ion-popover{
+  ion-backdrop{
+  opacity: 0.5 !important;
+  }
+  .popover-wrapper{
+    .popover-content{
+      width:80vw;
+      max-width:500px;
+    }
+  }
+}

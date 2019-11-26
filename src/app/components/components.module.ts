@@ -11,7 +11,6 @@ import { RouterModule } from '@angular/router';
   entryComponents:[
     PopoverProductComponent,
   ],
-  
   declarations: [
     MenuComponent,
     PopoverProductComponent,
