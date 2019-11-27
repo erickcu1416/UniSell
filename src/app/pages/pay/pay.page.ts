@@ -14,7 +14,7 @@ export class PayPage implements OnInit {
   }
 
   goToSelectPay() {
-    this.router.navigateByUrl('select-pay')
+    this.router.navigateByUrl('select-pay');
   }
 
 }

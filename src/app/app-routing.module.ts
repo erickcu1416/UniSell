@@ -20,6 +20,10 @@ const routes: Routes = [
   {
     path: 'select-pay',
     loadChildren: () => import('./pages/select-pay/select-pay.module').then( m => m.SelectPayPageModule)
+  },
+  {
+    path: 'form-add-product',
+    loadChildren: () => import('./pages/form-add-product/form-add-product.module').then( m => m.FormAddProductPageModule)
   }
 
 ];
