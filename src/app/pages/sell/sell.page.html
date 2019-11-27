@@ -1,41 +1,41 @@
 <ion-header no-border color="primary">
-  <ion-toolbar class="toolbar-background" color="primary">
-    <ion-buttons slot="start">
-        <ion-back-button defaultHref=""></ion-back-button>
-    </ion-buttons>
-  </ion-toolbar>
+    <ion-toolbar class="toolbar-background" color="primary">
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref=""></ion-back-button>
+        </ion-buttons>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content color="primary">
 
-  <ion-text class= "principal-text" color="royal">
-      <div class="principal-text ion-text-center">
-          <h1 class="ion-text-center">¿Qué quieres vender?</h1>
+    <ion-text class="principal-text" color="royal">
+        <div class="principal-text ion-text-center">
+            <h1 class="ion-text-center">¿Qué quieres vender?</h1>
         </div>
-  </ion-text>
+    </ion-text>
 
-  <ion-grid fixed>
-    <ion-row>
-      <ion-col button offset="1" size="4">
-          <div class="img-category-select">
-            <a button>
-              <img src="/assets/img/alimento.jpg" alt="" srcset="">
-            </a>
-            </div>
-          <h4 class="ion-text-center">Alimentos</h4>
+    <ion-grid fixed>
+        <ion-row>
+            <ion-col (click)="goToSell()" button offset="1" size="4">
+                <div class="img-category-select">
+                    <a button>
+                        <img src="/assets/img/alimento.jpg" alt="" srcset="">
+                    </a>
+                </div>
+                <h4 class="ion-text-center">Alimentos</h4>
 
-      </ion-col>
-      <ion-col button offset="2" size="4">
-          <div class="img-category-select">
-            <a button>
-              <img src="/assets/img/papeleria.jpg" alt="" srcset="">
-            </a>
-            </div>
-          <h4 class="ion-text-center">Papeleria</h4>
+            </ion-col>
+            <ion-col button offset="2" size="4">
+                <div class="img-category-select">
+                    <a button>
+                        <img src="/assets/img/papeleria.jpg" alt="" srcset="">
+                    </a>
+                </div>
+                <h4 class="ion-text-center">Papeleria</h4>
 
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
 
 
 </ion-content>

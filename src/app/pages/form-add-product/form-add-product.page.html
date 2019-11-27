@@ -1,9 +1,44 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>form-add-product</ion-title>
-  </ion-toolbar>
+<ion-header no-border color="primary">
+    <ion-toolbar class="toolbar-background" color="primary">
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref=""></ion-back-button>
+        </ion-buttons>
+        <ion-title>Agrega un producto</ion-title>
+    </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="ion-padding">
+    <ion-item>
+        <ion-label position="stacked" class="letra">Título:</ion-label>
+        <ion-input></ion-input>
+    </ion-item>
+
+    <ion-item>
+        <ion-label position="stacked" class="letra">Descripción:</ion-label>
+        <ion-textarea inputmode="text" auto-grow="true"></ion-textarea>
+    </ion-item>
+
+    <ion-item>
+        <ion-label position="stacked" class="letra">Precio:</ion-label>
+        <ion-input inputmode="decimal">$</ion-input>
+    </ion-item>
+
+    <ion-grid fixed>
+        <ion-row>
+            <ion-col size="6">
+                <ion-button (click)="onClick()">
+                    <ion-icon slot="start" name="photos"></ion-icon>
+                     Imagen
+                </ion-button>
+            </ion-col>
+            <ion-col size="6">
+                <ion-button (click)="onClick()">
+                    <ion-icon slot="start" name="checkmark"></ion-icon>
+                    Publicar
+                </ion-button>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+
 
 </ion-content>
