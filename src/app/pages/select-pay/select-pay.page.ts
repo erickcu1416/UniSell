@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,43 +8,87 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SelectPayPage implements OnInit {
 
-  constructor() { }
+  creditCard = '1';
+  classVariable = 'head-credit-background';
+  endText = '';
+  startText = '';
 
-  ngOnInit() {
-  }
+  key = Math.round(Math.random() * 100000000000000);
+  constructor(private router: Router) { }
 
   cards = [
     {
       state: 'ON',
-      logo: "assets/img/visa.png",
-      a: 1234,
-      b: 5522,
-      c: 8432,
-      d: 2264,
-      expires: '7/12',
-      bank: 'Bank of America'
+      logo: 'assets/img/visa.png',
+      a: '----',
+      b:  '----',
+      c:  '----',
+      d:  '----',
+      expires: '-/-',
+      bank: ''
     },
-    {
-      state: 'OFF',
-      logo: "assets/img/american.png",
-      a: 1234,
-      b: 5321,
-      c: 8283,
-      d: 9271,
-      expires: '8/19',
-      bank: 'JPMorgan'
-    },
-    {
-      state: 'ON',
-      logo: "assets/img/mastercard.png",
-      a: 8685,
-      b: 2445,
-      c: 9143,
-      d: 7846,
-      expires: '11/23',
-      bank: 'CityBank'
-    }
   ];
 
+  ngOnInit() {
+  }
+
+  change($event) {
+    console.log($event);
+    console.log(this.creditCard);
+    if (this.creditCard === '2') {
+      this.classVariable = 'head-background animated fadeIn';
+    } else {
+      this.classVariable = 'head-credit-background animated fadeIn';
+    }
+  }
+
+  changeYear($event) {
+    console.log($event.detail.value);
+    this.endText = $event.detail.value;
+    this.cards[0].expires = this.startText + '/' + this.endText;
+  }
+
+  changeMouth($event) {
+    console.log($event.detail.value);
+    this.startText = $event.detail.value;
+    this.cards[0].expires = this.startText + '/' + this.endText;
+  }
+
+  changeName($event) {
+    console.log($event.detail.value);
+    this.cards[0].bank = $event.detail.value.toUpperCase();
+
+  }
+
+  ionChange($event) {
+    console.log($event.detail.value);
+    this.cards[0].a = $event.detail.value.substr(0, 4);
+    if ($event.detail.value.toString().length === 0) {
+      this.cards[0].a = '----';
+    }
+    if ($event.detail.value.toString().length > 4) {
+      this.cards[0].b = $event.detail.value.substr(4, 4);
+    } else {
+      this.cards[0].b = '----';
+    }
+
+    if ($event.detail.value.toString().length > 8) {
+      this.cards[0].c = $event.detail.value.substr(8, 4);
+    } else {
+      this.cards[0].c = '----';
+
+    }
+
+    if ($event.detail.value.toString().length > 12) {
+      this.cards[0].d = $event.detail.value.substr(12, 4);
+    } else {
+      this.cards[0].d = '----';
+    }
+    console.log(this.cards[0]);
+  }
+
+  goToThanks() {
+    this.router.navigateByUrl('thankyou');
+  }
 
 }

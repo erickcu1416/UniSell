@@ -24,6 +24,10 @@ const routes: Routes = [
   {
     path: 'form-add-product',
     loadChildren: () => import('./pages/form-add-product/form-add-product.module').then( m => m.FormAddProductPageModule)
+  },
+  {
+    path: 'thankyou',
+    loadChildren: () => import('./pages/thankyou/thankyou.module').then( m => m.ThankyouPageModule)
   }
 
 ];
