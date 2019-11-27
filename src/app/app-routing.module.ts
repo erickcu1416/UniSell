@@ -28,6 +28,14 @@ const routes: Routes = [
   {
     path: 'thankyou',
     loadChildren: () => import('./pages/thankyou/thankyou.module').then( m => m.ThankyouPageModule)
+  },
+  {
+    path: 'register',
+    loadChildren: () => import('./pages/auth/register/register.module').then( m => m.RegisterPageModule)
+  },
+  {
+    path: 'login',
+    loadChildren: () => import('./pages/auth/login/login.module').then( m => m.LoginPageModule)
   }
 
 ];

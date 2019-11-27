@@ -1,0 +1,63 @@
+
+<form [formGroup]="loginForm">
+    <ion-list lines="full">    
+      <ion-item>
+          <ion-label position="floating">
+            <div class="tab-text">
+              Correo
+            </div>
+          </ion-label>
+          <ion-input formControlName="email" type="text"></ion-input>
+      </ion-item>
+      <div class="error-messages">
+          <ng-container *ngFor="let error of error_messages.email">
+              <div class="error-message" *ngIf="loginForm.get('email').hasError(error.type) && (loginForm.get('email').dirty ||loginForm.get('email').touched)">
+                <div class="tab-text">
+                  {{error.message}}             
+                </div>
+              </div>
+          </ng-container>
+      </div>
+      <div class="margin-btn-botton">
+        <ion-item>
+            <ion-label position="floating">
+              <div class="tab-text">
+                Contraseña              
+              </div>
+            </ion-label>
+            <ion-input formControlName="password" type="password"></ion-input>
+        </ion-item>
+        <div class="error-messages">
+            <ng-container *ngFor="let error of error_messages.password">
+                <div class="error-message" *ngIf="loginForm.get('password').hasError(error.type) && (loginForm.get('password').dirty ||loginForm.get('password').touched)">
+                  <div class="tab-text">
+                    {{error.message}}             
+                  </div>
+                </div>
+            </ng-container>
+           <!-- <ion-button (click)="tryLogin(loginForm.value)" [disabled]="!loginForm.valid" shape="round" size="default" color="primary" expand="block">Iniciar Sesión</ion-button> -->
+          </div>
+      </div>
+        <ion-row>
+            <ion-col size="10" offset="1">
+                <ion-button [disabled]="!loginForm.valid" (click)="tryLogin(loginForm.value)" color="primary" expand="full" shape="round" mode="ios" class="btn-primary">
+                  <div class="tab-text">
+                    INGRESAR             
+                  </div>
+                </ion-button>
+            </ion-col>
+        </ion-row>
+    </ion-list>
+  </form>
+  <ion-row class="margin-botton">
+      <ion-col size="10" offset="1">
+          <ion-button (click)="registerEmitter()" expand="full" fill="clear">
+              <ion-label color="dark">
+                  <div class="tab-text">
+                    REGISTRARME             
+                  </div>
+              </ion-label>
+          </ion-button>
+      </ion-col>
+  </ion-row>
+
