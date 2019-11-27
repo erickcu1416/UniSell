@@ -29,7 +29,11 @@ export class AuthService {
             .createUserWithEmailAndPassword(value.email, value.password)
             .then(
             async res => {
-                const userPush: IUserNotification = await this._pushNotiService.getIdNotiUser();
+                console.log('value', value);
+                let userPush: IUserNotification;
+                if (!this.platform.is('cordova')) {
+                    userPush = await this._pushNotiService.getIdNotiUser();
+                }
 
                 let user: IUser;
                 if (!this.platform.is('cordova')) {
@@ -38,6 +42,7 @@ export class AuthService {
                         email: value.email,
                         username: value.username,
                     };
+                    console.log('Hola', user);
                 } else {
                     user = {
                         email: value.email,

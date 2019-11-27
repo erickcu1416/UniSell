@@ -57,7 +57,11 @@ export class PushNotificationService {
 
             if (!this.platform.is('cordova')) {
                 console.log('One singal no está disponible para Escritorio');
-                reject();
+                userNotification = {
+                    userId: '1111s',
+                    pushToken: '111111',
+                };
+                return resolve(userNotification);
             }
 
             await this.oneSignal.getIds().then(
@@ -67,7 +71,7 @@ export class PushNotificationService {
                         pushToken: data.pushToken,
                     };
                     console.log(userNotification);
-                    resolve(userNotification);
+                    return resolve(userNotification);
                 }
             );
         });
