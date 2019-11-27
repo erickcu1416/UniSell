@@ -1,0 +1,37 @@
+<ion-header no-border color="primary">
+  <ion-toolbar class="toolbar-background" color="primary">
+    <ion-buttons slot="start">
+        <ion-back-button defaultHref=""></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<!-- <ion-content color="primary">
+  
+</ion-content> -->
+<ion-content>
+  <div class="head-background">
+      <ion-text class="ion-padding" color="royal">
+          <div class=" principal-text ion-text-center">
+              <h1 class="ion-text-center">Específica el lugar de entrega:</h1>
+            </div>
+      </ion-text>
+  </div>
+    <ion-grid class="principal-text" fixed>
+        <ion-row>
+          <ion-col button offset="2" size="9">
+              <ion-input type="text" placeholder="Escribe el lugar de entrega"></ion-input>
+          </ion-col>
+        </ion-row>
+        <br>
+        <br>
+        <ion-row>
+          <ion-col offset="3" size="6">
+            <ion-button (click)="goToSelectPay()" fill="solid" shape="round">
+              Continuar
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+</ion-content>
+
