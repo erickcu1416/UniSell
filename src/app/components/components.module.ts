@@ -1,3 +1,6 @@
+import { RegisterFormComponent } from './forms/register-form/register-form.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { LoginFormComponent } from './forms/login-form/login-form.component';
 import { PopoverProductComponent } from './popover-product/popover-product.component';
 import { MenuComponent } from './menu/menu.component';
 
@@ -14,15 +17,21 @@ import { RouterModule } from '@angular/router';
   declarations: [
     MenuComponent,
     PopoverProductComponent,
+    LoginFormComponent,
+    RegisterFormComponent,
   ],
   exports: [
     MenuComponent,
     PopoverProductComponent,
+    LoginFormComponent,
+    RegisterFormComponent,
   ],
   imports: [
     CommonModule,
     IonicModule,
     RouterModule,
+    FormsModule,
+    ReactiveFormsModule,
   ]
 })
 export class ComponentsModule { }
