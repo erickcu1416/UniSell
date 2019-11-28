@@ -9,7 +9,7 @@ const routes: Routes = [
     canActivate: [ AuthGuard ]
   },
   {
-    path: 'tab3',
+    path: 'tab3/:type',
     loadChildren: './tab3/tab3.module#Tab3PageModule',
     canActivate: [ AuthGuard ]
   },
@@ -32,7 +32,7 @@ const routes: Routes = [
 
   },
   {
-    path: 'form-add-product',
+    path: 'form-add-product/:type',
     loadChildren: () => import('./pages/form-add-product/form-add-product.module').then( m => m.FormAddProductPageModule),
     canActivate: [ AuthGuard ]
 
@@ -54,7 +54,8 @@ const routes: Routes = [
   {
     path: 'my-sales',
     loadChildren: () => import('./pages/my-sales/my-sales.module').then( m => m.MySalesPageModule)
-  },  {
+  },
+  {
     path: 'membership',
     loadChildren: () => import('./pages/membership/membership.module').then( m => m.MembershipPageModule)
   },

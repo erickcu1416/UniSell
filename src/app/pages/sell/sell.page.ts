@@ -20,7 +20,7 @@ export class SellPage implements OnInit, OnDestroy {
   }
 
     goToSell() {
-      this.router.navigateByUrl('form-add-product');
+      this.router.navigateByUrl('form-add-product/alimentos');
     }
 
 }

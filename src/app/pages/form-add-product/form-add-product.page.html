@@ -3,24 +3,29 @@
         <ion-buttons slot="start">
             <ion-back-button defaultHref=""></ion-back-button>
         </ion-buttons>
-        <ion-title>Agrega un producto</ion-title>
+        <ion-title>Vender {{type}}</ion-title>
     </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
     <ion-item>
         <ion-label position="stacked" class="letra">Título:</ion-label>
-        <ion-input></ion-input>
+        <ion-input [(ngModel)]="product.title"></ion-input>
     </ion-item>
 
     <ion-item>
         <ion-label position="stacked" class="letra">Descripción:</ion-label>
-        <ion-textarea inputmode="text" auto-grow="true"></ion-textarea>
+        <ion-textarea [(ngModel)]="product.description" inputmode="text" auto-grow="true"></ion-textarea>
     </ion-item>
 
     <ion-item>
         <ion-label position="stacked" class="letra">Precio:</ion-label>
-        <ion-input inputmode="decimal">$</ion-input>
+        <ion-input [(ngModel)]="product.price" inputmode="decimal">$</ion-input>
+    </ion-item>
+
+    <ion-item>
+        <ion-label>Valido Hasta</ion-label>
+        <ion-datetime [(ngModel)]="product.valid_to" displayFormat="D MMM YYYY H:mm" min="2019" max="2019" value="2005-06-17T11:06Z"></ion-datetime>
     </ion-item>
 
     <ion-grid fixed>
@@ -32,7 +37,7 @@
                 </ion-button>
             </ion-col>
             <ion-col size="6">
-                <ion-button (click)="onClick()">
+                <ion-button (click)="sendProduct()">
                     <ion-icon slot="start" name="checkmark"></ion-icon>
                     Publicar
                 </ion-button>

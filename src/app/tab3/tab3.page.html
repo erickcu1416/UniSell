@@ -9,7 +9,7 @@
     </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-no-padding">
+<ion-content *ngIf="!loader"  class="ion-no-padding">
     <ion-searchbar placeholder="Escribe el nombre del producto">
     </ion-searchbar>
     <!-- <ion-list *ngFor="let item of [1,1,1,1,1,1] ; let i=index ">
@@ -35,7 +35,7 @@
         </ion-item>
     </ion-list> -->
 
-    <ion-card *ngFor="let item of [1,1,1,1,1]" (click)="presentPopover('a')" class="card_content">
+    <ion-card *ngFor="let product of products" (click)="presentPopover('a')" class="card_content">
         <!-- <ion-list class="overlay_top">
           
           <h2 class="id" class="ion-padding"> <ion-icon name="cafe"></ion-icon> &nbsp; Booking History : 1</h2>
@@ -45,7 +45,7 @@
                 <div class="ion-text-center">
                     <ion-icon slot="icon-only" name="cafe">
                     </ion-icon>
-                    Espaguetti
+                    {{ product.title }}
                 </div>
             </ion-card-title>
         </ion-card-header>
@@ -57,27 +57,18 @@
                     <p class="subline">Precio:</p>
                 </ion-text>
                 <ion-text color="primary">
-                    <h1 class="persons">$112</h1>
+                    <h1 class="persons"> {{ product.price }} </h1>
                 </ion-text>
             </ion-col>
-            <ion-col col-6>
-                <ion-text color="royal">
-                    <p class="subline">Disponibles No.</p>
-                </ion-text>
-                <ion-text color="primary">
-                    <h1 class="persons">12</h1>
-                </ion-text>
-
-        </ion-col>
           </ion-row>
           <ion-row class="ion-justify-content-center" class="ion-padding">
             <ion-col col-6 class="date">
               <ion-icon ios="ios-calendar-outline" name="calendar" class="icon"></ion-icon>
-              <h3 class="descrption">12/12/12</h3>
+              <h3 class="descrption"> {{ product.valid_to.toLocaleString() }} </h3>
             </ion-col>
             <ion-col col-6 class="time">
               <ion-icon ios="ios-clock-outline" name="clock" class="icon"></ion-icon>
-              <h3 class="descrption">12/12/12</h3>
+              <h3 class="descrption"> {{ product.timeRes }} </h3>
             </ion-col>
           </ion-row>
         </ion-card-content>
