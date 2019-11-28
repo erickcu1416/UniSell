@@ -10,7 +10,7 @@
 <ion-content>
 
   <ion-list *ngFor="let product of products ; let i=index ">
-        <ion-item class="ion-text-wrap">
+        <ion-item (click)="presentPopover(product)" class="ion-text-wrap">
             <ion-row class="catagory">
                 <ion-col col-6>
                     <img src="/assets/img/offer1.jpg" alt="foodname" />

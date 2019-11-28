@@ -4,4 +4,5 @@ export interface IBuy {
     idProduct?: string;
     description: string;
     created_at?: string;
+    userName?: string;
 }

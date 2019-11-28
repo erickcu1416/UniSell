@@ -1,0 +1,14 @@
+
+<ion-list lines="none" inset="true">
+    <ion-list-header>
+        <ion-label>Pedidos de: </ion-label>
+    </ion-list-header>
+    <ion-item *ngFor="let item of buys" >
+        <ion-icon name="person" mode="ios" slot="start"></ion-icon>
+        <ion-label> {{ item.userName }}: {{ item.description }} </ion-label>
+    </ion-item>
+    <!-- <ion-item>
+        <ion-icon name="time" mode="ios" slot="start"></ion-icon>
+        <ion-label>04:08</ion-label>
+    </ion-item> -->
+</ion-list>

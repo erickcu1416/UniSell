@@ -22,6 +22,10 @@ export class BuyService {
         return this._BuyRepository.getBuysByType(type);
     }
 
+    getBuysByIdProduct(idProduct): Observable<IBuy[]> {
+        return this._BuyRepository.getBuysByIdProduct(idProduct);
+    }
+
     getBuyById(id): Observable<IBuy> {
         if (id === null || id === undefined || id === '' || id === 0) {
             this._messagesCtrl.presentAlertOk('', 'ID Invalido');

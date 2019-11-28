@@ -1,3 +1,5 @@
+import { PopoverSellComponent } from './../../components/popover-sell/popover-sell.component';
+import { PopoverController } from '@ionic/angular';
 import { IProduct } from './../../../utils/interfaces/modules/product.interface';
 import { AuthService } from './../../../services/modules/auth.service';
 import { ProductService } from './../../../services/modules/product.service';
@@ -13,7 +15,8 @@ import * as moment from 'moment';
 export class MySalesPage implements OnInit {
   products: IProduct [] = [];
   constructor(private _productService: ProductService,
-              private _authService: AuthService) { }
+              private _authService: AuthService,
+              private popoverController: PopoverController) { }
 
   ngOnInit() {
     this.getMyProducts();
@@ -34,6 +37,19 @@ export class MySalesPage implements OnInit {
         console.log('PRODUCTS', this.products)
       }
     );
+  }
+
+  async presentPopover(ev: any) {
+    console.log('Hola');
+    const popover = await this.popoverController.create({
+      component: PopoverSellComponent,
+      event: ev,
+      translucent: true,
+      componentProps: {
+        product: ev
+      }
+    });
+    return await popover.present();
   }
 
 }

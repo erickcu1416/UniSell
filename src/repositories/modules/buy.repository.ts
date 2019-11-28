@@ -14,7 +14,9 @@ export class BuyRepository {
     private itemDoc: AngularFirestoreDocument<IBuy>;
     item: Observable<IBuy>;
 
-    COLLECTION_END = 'buys';
+    COLLECTION_END = 'products';
+    SUBCOLLECTION_END = 'buys';
+
 
 
     constructor(private afs: AngularFirestore) {
@@ -33,10 +35,10 @@ export class BuyRepository {
         return this.Buys;
     }
 
-    getBuysByType(type): Observable<IBuy[]> {
-        this.Buys  = this.afs.collection<IBuy>(`${this.COLLECTION_END}`, ref => ref.where('type', '==', `${type}`))
-            .valueChanges();
-        return this.Buys;
+    getBuysByIdProduct(idProduct): Observable<IBuy[]> {
+        this.BuysCollection = this.afs.collection<IBuy>(`${this.COLLECTION_END}/${idProduct}/${this.SUBCOLLECTION_END}`);
+        this.Buys = this.BuysCollection.valueChanges();
+        return this.Buys;     
     }
 
     async updateBuy(Buy: IBuy): Promise<any> {
@@ -52,6 +54,8 @@ export class BuyRepository {
     async addBuy(Buy: IBuy): Promise<any> {
         return new Promise(
             async (resolve, reject) => {
+            this.BuysCollection = this.afs.collection<IBuy>(`${this.COLLECTION_END}/${Buy.idProduct}/${this.SUBCOLLECTION_END}`);
+
             const id = this.afs.createId();
             Buy._id = id;
             await this.BuysCollection.doc(id).set(Buy).then(

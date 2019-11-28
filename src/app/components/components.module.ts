@@ -1,3 +1,4 @@
+import { PopoverSellComponent } from './popover-sell/popover-sell.component';
 import { RegisterFormComponent } from './forms/register-form/register-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginFormComponent } from './forms/login-form/login-form.component';
@@ -13,18 +14,23 @@ import { RouterModule } from '@angular/router';
 @NgModule({
   entryComponents:[
     PopoverProductComponent,
+    PopoverSellComponent,
   ],
   declarations: [
     MenuComponent,
     PopoverProductComponent,
     LoginFormComponent,
     RegisterFormComponent,
+    PopoverSellComponent,
+
   ],
   exports: [
     MenuComponent,
     PopoverProductComponent,
     LoginFormComponent,
     RegisterFormComponent,
+    PopoverSellComponent,
+
   ],
   imports: [
     CommonModule,
