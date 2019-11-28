@@ -1,20 +1,27 @@
-import { Router } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
+import { BuyService } from './../../../services/modules/buy.service';
+import { IBuy } from './../../../utils/interfaces/modules/buy.interface';
+import { Router, ActivatedRoute } from '@angular/router';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 
 @Component({
   selector: 'app-select-pay',
   templateUrl: './select-pay.page.html',
   styleUrls: ['./select-pay.page.scss'],
 })
-export class SelectPayPage implements OnInit {
+export class SelectPayPage implements OnInit, OnDestroy {
 
   creditCard = '1';
   classVariable = 'head-credit-background';
   endText = '';
   startText = '';
+  sub: any;
+  description = '';
+  id: any;
 
   key = Math.round(Math.random() * 100000000000000);
-  constructor(private router: Router) { }
+  constructor(private router: Router, 
+              private route: ActivatedRoute,
+              private _buyService: BuyService) { }
 
   cards = [
     {
@@ -30,6 +37,20 @@ export class SelectPayPage implements OnInit {
   ];
 
   ngOnInit() {
+    this.sub = this.route
+      .queryParams
+      .subscribe(params => {
+        // Defaults to 0 if no query param provided.
+        this.description = params['description'] || '';
+        this.id = params.id || '';
+        console.log('DESCRIPCION', this.description);
+        console.log('ID', this.id);
+
+      });
+  }
+
+  ngOnDestroy() {
+    this.sub.unsubscribe();
   }
 
   change($event) {
@@ -88,7 +109,17 @@ export class SelectPayPage implements OnInit {
   }
 
   goToThanks() {
-    this.router.navigateByUrl('thankyou');
+    const buy: IBuy = {
+      description: this.description,
+      idProduct: this.id,
+    };
+    this._buyService.addBuy(buy).then(
+      (res) => {
+        if (res) {
+          this.router.navigateByUrl('thankyou');
+        }
+      }
+    );
   }
 
 }

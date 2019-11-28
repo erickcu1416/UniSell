@@ -34,68 +34,72 @@
             </ion-row>
         </ion-item>
     </ion-list> -->
-
-    <ion-card *ngFor="let product of products" (click)="presentPopover('a')" class="card_content">
-        <!-- <ion-list class="overlay_top">
-          
-          <h2 class="id" class="ion-padding"> <ion-icon name="cafe"></ion-icon> &nbsp; Booking History : 1</h2>
-        </ion-list> -->
-        <ion-card-header class="overlay_top">
-            <ion-card-title color="royal" >
-                <div class="ion-text-center">
-                    <ion-icon slot="icon-only" name="cafe">
-                    </ion-icon>
-                    {{ product.title }}
+<div *ngFor="let product of products" >
+    <div *ngIf="isValid(product.valid_to)" >
+        <ion-card (click)="presentPopover(product)" class="card_content">
+            <!-- <ion-list class="overlay_top">
+              
+              <h2 class="id" class="ion-padding"> <ion-icon name="cafe"></ion-icon> &nbsp; Booking History : 1</h2>
+            </ion-list> -->
+            <ion-card-header class="overlay_top">
+                <ion-card-title color="royal" >
+                    <div class="ion-text-center">
+                        <ion-icon slot="icon-only" name="cafe">
+                        </ion-icon>
+                        {{ product.title }}
+                    </div>
+                </ion-card-title>
+            </ion-card-header>
+            <ion-card-content class="overlay_content">
+             
+              <ion-row class="details" class="ion-text-center">
+                <ion-col col-6>
+                    <ion-text color="royal">
+                        <p class="subline">Precio:</p>
+                    </ion-text>
+                    <ion-text color="primary">
+                        <h1 class="persons"> {{ product.price }} </h1>
+                    </ion-text>
+                </ion-col>
+              </ion-row>
+              <ion-row class="ion-justify-content-center" class="ion-padding">
+                <ion-col col-6 class="date">
+                  <ion-icon ios="ios-calendar-outline" name="calendar" class="icon"></ion-icon>
+                  <h3 class="descrption"> {{ product.valid_to.toLocaleString() }} </h3>
+                </ion-col>
+                <!-- <ion-col col-6 class="time">
+                  <ion-icon ios="ios-clock-outline" name="clock" class="icon"></ion-icon>
+                  <h3 class="descrption"> {{ product.timeRes }} </h3>
+                </ion-col> -->
+              </ion-row>
+            </ion-card-content>
+            <ion-card-content class="overlay_bottom">
+            
+                <div class="status">
+                    <ion-text color="light">
+                        <h2 color="primary"> by<span> {{ product.userName }}</span> </h2>
+                        <!-- <h3 color="primary"> Estado:</h3> -->
+                    </ion-text>
+                    <!-- <ion-icon padding-left ios="ios-heart" name="heart" class="icon" ></ion-icon>  -->
                 </div>
-            </ion-card-title>
-        </ion-card-header>
-        <ion-card-content class="overlay_content">
-         
-          <ion-row class="details" class="ion-text-center">
-            <ion-col col-6>
-                <ion-text color="royal">
-                    <p class="subline">Precio:</p>
-                </ion-text>
-                <ion-text color="primary">
-                    <h1 class="persons"> {{ product.price }} </h1>
-                </ion-text>
-            </ion-col>
-          </ion-row>
-          <ion-row class="ion-justify-content-center" class="ion-padding">
-            <ion-col col-6 class="date">
-              <ion-icon ios="ios-calendar-outline" name="calendar" class="icon"></ion-icon>
-              <h3 class="descrption"> {{ product.valid_to.toLocaleString() }} </h3>
-            </ion-col>
-            <ion-col col-6 class="time">
-              <ion-icon ios="ios-clock-outline" name="clock" class="icon"></ion-icon>
-              <h3 class="descrption"> {{ product.timeRes }} </h3>
-            </ion-col>
-          </ion-row>
-        </ion-card-content>
-        <ion-card-content class="overlay_bottom">
-        
-            <div class="status">
-                <ion-text color="light">
-                    <h2 color="primary"> by<span> Erick Chan</span> </h2>
-                    <!-- <h3 color="primary"> Estado:</h3> -->
-                </ion-text>
-                <!-- <ion-icon padding-left ios="ios-heart" name="heart" class="icon" ></ion-icon>  -->
-            </div>
-          
-        </ion-card-content >
-        <!-- <ion-list class="overlay_bottom" color="primary" class="ion-padding">
-          
-          <ion-list col-6 class="rating">
-              <h4>Rating</h4>
-              <div class="star">
-                <ion-icon name="star"></ion-icon>
-                <ion-icon name="star"></ion-icon>
-                <ion-icon name="star"></ion-icon>
-                <ion-icon name="star-half"></ion-icon>
-                <ion-icon name="star-outline"></ion-icon>
-              </div>
-            </ion-list> 
-        </ion-list> -->
-      </ion-card>
+              
+            </ion-card-content >
+            <!-- <ion-list class="overlay_bottom" color="primary" class="ion-padding">
+              
+              <ion-list col-6 class="rating">
+                  <h4>Rating</h4>
+                  <div class="star">
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star-half"></ion-icon>
+                    <ion-icon name="star-outline"></ion-icon>
+                  </div>
+                </ion-list> 
+            </ion-list> -->
+          </ion-card>
+    </div>
+</div>
+
 
 </ion-content>

@@ -1,6 +1,6 @@
-import { PopoverController } from '@ionic/angular';
+import { PopoverController, NavParams } from '@ionic/angular';
 import { Router } from '@angular/router';
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 
 @Component({
   selector: 'app-popover-product',
@@ -9,14 +9,19 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 })
 export class PopoverProductComponent implements OnInit, OnDestroy {
 
+  @Input() ev: any = '';
+  constructor(private router: Router, 
+              private popoverController: PopoverController,
+              private navParams: NavParams) { }
 
-  constructor(private router: Router, private popoverController: PopoverController) { }
-
-  ngOnInit() {}
+  ngOnInit() {
+    this.ev = this.navParams.get('product');
+    console.log('data', this.ev)
+  }
 
   goToPay() {
     this.popoverController.dismiss();
-    this.router.navigateByUrl('pay');
+    this.router.navigate(['pay'], { queryParams: { id: this.ev._id } });
   }
 
   ngOnDestroy(): void {

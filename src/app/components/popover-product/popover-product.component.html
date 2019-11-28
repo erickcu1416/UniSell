@@ -11,29 +11,29 @@
             </label> -->
         </ion-row>
         <br>
-        <p class="name">Espaguetti</p>
+        <p class="name"> {{ ev.title }} </p>
     </div>
 
     <ion-grid fixed class="border-bottom bg-white">
         <ion-row class="ion-no-padding">
-            <ion-col size="6">
+            <ion-col offset="3" size="6">
             <div class="ion-text-center">
-                <span class="text-statics-big text-primary">$122</span> <br>
+                <span class="text-statics-big text-primary">${{ev.price}}  </span> <br>
                 <small>Precio</small>
             </div>
             </ion-col>
-            <ion-col size="6">
+            <!-- <ion-col size="6">
             <div class="ion-text-center">
                 <span class="text-statics-big text-primary">15</span> <br>
                 <small>Disponibles</small>
             </div>
-            </ion-col>
+            </ion-col> -->
         </ion-row>
     </ion-grid>
 
         <div class="vertical-padding">
             <p class="ion-text-center text-profile">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellendus veritatis ut distinctio
+                {{ ev.description }}
             </p>
         </div>
 
@@ -43,12 +43,12 @@
             </ion-list-header>
             <ion-item>
                 <ion-icon name="calendar" mode="ios" slot="start"></ion-icon>
-                <ion-label>12/12/12</ion-label>
+                <ion-label> {{ ev.valid_to.toLocaleString() }} </ion-label>
             </ion-item>
-            <ion-item>
+            <!-- <ion-item>
                 <ion-icon name="time" mode="ios" slot="start"></ion-icon>
                 <ion-label>04:08</ion-label>
-            </ion-item>
+            </ion-item> -->
         </ion-list>
   
   

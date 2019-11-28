@@ -39,6 +39,12 @@ export class ProductRepository {
         return this.Products;
     }
 
+    getProductsByIdUser(idUser): Observable<IProduct[]> {
+        this.Products  = this.afs.collection<IProduct>(`${this.COLLECTION_END}`, ref => ref.where('idUser', '==', `${idUser}`))
+            .valueChanges();
+        return this.Products;
+    }
+
     async updateProduct(Product: IProduct): Promise<any> {
         return new Promise(
             async (resolve, reject) => {

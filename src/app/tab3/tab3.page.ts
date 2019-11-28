@@ -1,3 +1,4 @@
+import { AuthService } from './../../services/modules/auth.service';
 import { ActivatedRoute } from '@angular/router';
 import { IProduct } from './../../utils/interfaces/modules/product.interface';
 import { ProductService } from './../../services/modules/product.service';
@@ -24,13 +25,13 @@ export class Tab3Page implements OnInit, OnDestroy {
 
   constructor(public popoverController: PopoverController,
               private productService: ProductService,
-              private route: ActivatedRoute) {}
+              private route: ActivatedRoute,
+              private _authService: AuthService) {}
 
   async ngOnInit() {
     this.sub = await this.route.params.subscribe(params => {
       this.type = params.type;
     });
-
     this.getProducts();
   }
 
@@ -39,12 +40,16 @@ export class Tab3Page implements OnInit, OnDestroy {
     const popover = await this.popoverController.create({
       component: PopoverProductComponent,
       event: ev,
-      translucent: true
+      translucent: true,
+      componentProps: {
+        product: ev
+      }
     });
     return await popover.present();
   }
 
   async getProducts() {
+
     this._productsListener = this.productService.getProductsByType(this.type).subscribe(
       (products: IProduct[]) => {
         this.products = products;
@@ -55,9 +60,17 @@ export class Tab3Page implements OnInit, OnDestroy {
               moment.utc(moment(this.dateInit, 'DD/MM/YYYY HH:mm:ss').diff(moment(x.timeRes, 'DD/MM/YYYY HH:mm:ss'))).format('HH:mm:ss');
             });
             console.log('x', x);
+            this._authService.getUserById(x.idUser).subscribe(
+              us => {
+                x.userName = us.username;
+              }
+            );
+
             return x;
           }
         );
+
+        
         this.products.forEach(element => {
           let a = moment.utc(moment(this.dateInit, 'DD/MM/YYYY HH:mm:ss').diff(moment(element.timeRes, 'DD/MM/YYYY HH:mm:ss'))).format('HH:mm:ss');
           console.log(a);
@@ -75,6 +88,14 @@ export class Tab3Page implements OnInit, OnDestroy {
   }
   ngOnDestroy(): void {
     this._productsListener.unsubscribe();
+  }
+
+  isValid(dateEnd: Date): boolean {
+    if (this.dateInit <= dateEnd) {      
+      return true;
+    } else {
+      return false;
+    }
   }
 
 }
