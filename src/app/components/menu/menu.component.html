@@ -15,7 +15,7 @@
           </ion-row>
           <ion-row>
             <ion-col>
-              <p class="user-name">Usuario</p>
+              <p class="user-name"> {{user.username}} </p>
             </ion-col>
           </ion-row>
        
@@ -23,18 +23,23 @@
             <ion-icon slot="start" color="royal" name="home"></ion-icon>
               Inicio
           </ion-item>
-          <ion-item button routerLink="/sell" lines="none" class="menu-item">
-            <ion-icon slot="start" color="royal" name="pricetag"></ion-icon>
-              Vender
-          </ion-item>
-          <ion-item button routerLink="/my-sales" button lines="none" class="menu-item">
-            <ion-icon slot="start" color="royal" name="wallet"></ion-icon>
-              Mis Ventas 
-          </ion-item>
-          <ion-item button routerLink="/membership" button lines="none" class="menu-item">
-            <ion-icon slot="start" color="royal" name="card"></ion-icon>
-              Adquirir Membresía 
-          </ion-item>
+          <div *ngIf="user.member" >
+              <ion-item button routerLink="/sell" lines="none" class="menu-item">
+                <ion-icon slot="start" color="royal" name="pricetag"></ion-icon>
+                  Vender
+              </ion-item>
+              <ion-item button routerLink="/my-sales" button lines="none" class="menu-item">
+                <ion-icon slot="start" color="royal" name="wallet"></ion-icon>
+                  Mis Ventas 
+              </ion-item>
+          </div>
+          <div *ngIf="!user.member" >
+              <ion-item button routerLink="/membership" button lines="none" class="menu-item">
+                <ion-icon slot="start" color="royal" name="card"></ion-icon>
+                  Adquirir Membresía 
+              </ion-item>
+          </div>
+          
           <ion-item (click)="logOut()" button lines="none" class="menu-item">
             <ion-icon slot="start" color="royal" name="log-out"></ion-icon>
              Cerrar Sesión

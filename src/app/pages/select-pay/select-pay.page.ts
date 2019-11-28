@@ -1,3 +1,6 @@
+import { AuthService } from './../../../services/modules/auth.service';
+import { IUser } from './../../../utils/interfaces/modules/user.interface';
+import { UserRepository } from './../../../repositories/modules/user.repository';
 import { BuyService } from './../../../services/modules/buy.service';
 import { IBuy } from './../../../utils/interfaces/modules/buy.interface';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -17,11 +20,14 @@ export class SelectPayPage implements OnInit, OnDestroy {
   sub: any;
   description = '';
   id: any;
+  type = '';
 
   key = Math.round(Math.random() * 100000000000000);
   constructor(private router: Router, 
               private route: ActivatedRoute,
-              private _buyService: BuyService) { }
+              private _buyService: BuyService,
+              private _authRepository: UserRepository,
+              private _authService: AuthService) { }
 
   cards = [
     {
@@ -43,8 +49,10 @@ export class SelectPayPage implements OnInit, OnDestroy {
         // Defaults to 0 if no query param provided.
         this.description = params['description'] || '';
         this.id = params.id || '';
+
         console.log('DESCRIPCION', this.description);
         console.log('ID', this.id);
+        console.log('type', this.type);
 
       });
   }
@@ -108,11 +116,32 @@ export class SelectPayPage implements OnInit, OnDestroy {
     console.log(this.cards[0]);
   }
 
-  goToThanks() {
+  async goToThanks() {
+
+    if (!this.id) {
+      console.log('NO EXISTE EL ID');
+      const us: any = await this._authService.getUser();
+
+      const user: IUser = {
+        _id: us._id,
+        member: true,
+      };
+
+      await this._authRepository.updateUserFirestore(user).then(
+        data => {
+            console.log('data auth', data);
+            this.router.navigateByUrl('thankyouseller');
+        }
+      );
+      return;
+
+    }
+
     const buy: IBuy = {
       description: this.description,
       idProduct: this.id,
     };
+
     this._buyService.addBuy(buy).then(
       (res) => {
         if (res) {

@@ -5,4 +5,5 @@ export interface IUser {
     avatar?: string;
     userIdNoti?: string | number;
     pushToken?: string | number;
+    member?: boolean;
 }

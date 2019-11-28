@@ -28,6 +28,10 @@ export class PayPage implements OnInit, OnDestroy {
 
 
   goToSelectPay() {
+    if (!this.id) {
+      console.log('NO EXISTE EL ID');
+      return;
+    }
     this.router.navigate(['/select-pay'], { queryParams: { id: this.id, description: this.description } });
   }
 
