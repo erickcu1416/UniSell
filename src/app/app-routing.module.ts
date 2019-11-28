@@ -54,7 +54,19 @@ const routes: Routes = [
   {
     path: 'my-sales',
     loadChildren: () => import('./pages/my-sales/my-sales.module').then( m => m.MySalesPageModule)
+  },  {
+    path: 'membership',
+    loadChildren: () => import('./pages/membership/membership.module').then( m => m.MembershipPageModule)
+  },
+  {
+    path: 'thankyouseller',
+    loadChildren: () => import('./pages/thankyouseller/thankyouseller.module').then( m => m.ThankyousellerPageModule)
+  },
+  {
+    path: 'pages',
+    loadChildren: () => import('./pages/pages.module').then( m => m.PagesPageModule)
   }
+
 
 ];
 @NgModule({
