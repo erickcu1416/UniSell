@@ -1,3 +1,4 @@
+import { AuthService } from './../../services/modules/auth.service';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -8,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class Tab2Page {
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private _authService: AuthService) {}
 
   navcart() {
     console.log('NavCar');
@@ -16,5 +17,15 @@ export class Tab2Page {
 
   navigate() {
     this.router.navigateByUrl('tab3');
+  }
+
+  logOut() {
+    this._authService.doLogout().then(
+      data => {
+        if (data) {
+          this.router.navigateByUrl('login');
+        }
+      }
+    );
   }
 }

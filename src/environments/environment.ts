@@ -5,14 +5,13 @@
 export const environment = {
   production: false,
   firebaseConfig: {
-    apiKey: "AIzaSyDzz9zjT4pG_gKxnho76Pf0anxYDpbj9-E",
-    authDomain: "unisell-48a20.firebaseapp.com",
-    databaseURL: "https://unisell-48a20.firebaseio.com",
-    projectId: "unisell-48a20",
-    storageBucket: "unisell-48a20.appspot.com",
-    messagingSenderId: "981283123197",
-    appId: "1:981283123197:web:2c2f61cba9974daeba7394",
-    measurementId: "G-15HJ79R4E7"
+    apiKey: 'AIzaSyDnNIj3sJUo-CMXTHRi17szv_8hxVwXPtc',
+    authDomain: 'unisell-63dbd.firebaseapp.com',
+    databaseURL: 'https://unisell-63dbd.firebaseio.com',
+    projectId: 'unisell-63dbd',
+    storageBucket: 'unisell-63dbd.appspot.com',
+    messagingSenderId: '511294007193',
+    appId: '1:511294007193:web:e1decd006d8ee5c3a41508'
   }
 };
 

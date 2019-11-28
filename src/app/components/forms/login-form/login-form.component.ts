@@ -30,7 +30,7 @@ export class LoginFormComponent implements OnInit {
     ]
   };
   constructor(public formBuilder: FormBuilder, private _authService: AuthService, private navCtrl: NavController,
-              private _messagesCtrl: MessagesController
+              private _messagesCtrl: MessagesController, private router: Router
               ) {
     this.loginForm = this.formBuilder.group(
       {
@@ -77,6 +77,7 @@ export class LoginFormComponent implements OnInit {
   }
 
   registerEmitter() {
+    this.router.navigateByUrl('register');
     this.registerChange.emit();
   }
 

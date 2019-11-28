@@ -38,7 +38,7 @@ export class RegisterFormComponent implements OnInit {
   };
   // tslint:disable-next-line:max-line-length
   constructor(public formBuilder: FormBuilder, private _authService: AuthService, private _messagesCtrl: MessagesController,
-              private navCtrl: NavController) {
+              private navCtrl: NavController, private router: Router) {
     this.loginForm = this.formBuilder.group(
       {
         password: new FormControl('', Validators.compose(
@@ -112,6 +112,7 @@ export class RegisterFormComponent implements OnInit {
   }
 
   loginEmmiter() {
+    this.router.navigateByUrl('login');
     this.loginChange.emit();
   }
 
